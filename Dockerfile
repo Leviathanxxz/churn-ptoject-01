@@ -17,4 +17,7 @@ EXPOSE 8000
 
 # 6. Jalankan server uvicorn saat container dimulai
 # Kita pakai host 0.0.0.0 agar bisa diakses dari luar container
-CMD ["uvicorn", "src.g_app:app", "--host", "0.0.0.0", "--port", "8000"]
+# CMD ["uvicorn", "src.g_app:app", "--host", "0.0.0.0", "--port", "8000"]
+
+# Ganti baris terakhir di Dockerfile
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
