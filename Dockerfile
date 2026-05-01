@@ -17,7 +17,7 @@ COPY src/ ./src/
 ENV PYTHONPATH="/app"
 
 # 6. Expose port Streamlit
-EXPOSE 8501
+# EXPOSE 8501 
 
 # 7. Jalankan Streamlit dengan path yang benar
-CMD ["streamlit", "run", "src/h_app_streamlit.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["sh", "-c", "streamlit run src/h_app_streamlit.py --server.port=${PORT:-8501} --server.address=0.0.0.0"]
